@@ -1,0 +1,80 @@
+[
+  {
+    "title": "Star",
+    "release_date": "2024-03-15",
+    "genre": "Action-Adventure",
+    "developer": "Nova Studios",
+    "platforms": [
+      "PC",
+      "PlayStation 5",
+      "Xbox Series X"
+    ],
+    "imported_files": [
+      "cover_art.jpg",
+      "trailer.mp4",
+      "screenshots.zip"
+    ]
+  },
+  {
+    "title": "Reborn",
+    "release_date": "2024-06-10",
+    "genre": "Role-Playing Game",
+    "developer": "Eclipse Games",
+    "platforms": [
+      "PC",
+      "Nintendo Switch"
+    ],
+    "imported_files": [
+      "box_art.png",
+      "teaser.mp4",
+      "concept_art.pdf"
+    ]
+  },
+  {
+    "title": "Velocity",
+    "release_date": "2024-09-25",
+    "genre": "Racing",
+    "developer": "Hyperdrive Interactive",
+    "platforms": [
+      "PC",
+      "PlayStation 5",
+      "Xbox Series X",
+      "Nintendo Switch"
+    ],
+    "imported_files": [
+      "game_logo.jpg",
+      "gameplay_demo.mp4",
+      "wallpapers.zip"
+    ]
+  },
+  {
+    "title": "Echoes",
+    "release_date": "2024-12-05",
+    "genre": "Sci-Fi Strategy",
+    "developer": "Quantum Core",
+    "platforms": [
+      "PC",
+      "Mac"
+    ],
+    "imported_files": [
+      "strategy_guide.pdf",
+      "promo_video.mp4",
+      "soundtrack.zip"
+    ]
+  },
+  {
+    "title": "Shadow",
+    "release_date": "2024-07-20",
+    "genre": "Action RPG",
+    "developer": "Iron Anvil Studios",
+    "platforms": [
+      "PC",
+      "PlayStation 5"
+    ],
+    "imported_files": [
+      "artwork.jpg",
+      "cinematic_trailer.mp4",
+      "character_sheets.zip"
+    ]
+  }
+]
