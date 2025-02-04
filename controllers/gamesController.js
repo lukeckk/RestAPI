@@ -64,12 +64,12 @@ export const deleteGame = async (req, res) => {
   if (found) {
     res.status(200);
     res.json({
-      message: "Game is found and deleted"
+      message: `Game ${req.params.title} is found and deleted`
     })
   } else {
     res.status(404);
     res.json({
-      message: `Game ${req.body.title} not found and not deleted`
+      message: `Game ${req.params.title} not found and not deleted`
     })
   }
 
