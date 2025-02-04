@@ -11,7 +11,7 @@ export const getAllGames = async (req, res) => {
 }
 
 export const getGameByTitle = async (req, res) => {
-  const game = await db.getGameByTitle(req.params.gameName);
+  const game = await db.getGameByTitle(req.params.gameTitle);
 
   if (game) {
     res.status(200);
@@ -28,33 +28,33 @@ export const getGameByTitle = async (req, res) => {
 }
 
 export const addGame = async (req, res) => {
+  console.log("Received game data:", req.body);
   const addedGame = await db.addGame(req.body);
 
   res.status(201);
   res.json({
-    message: "Inserted new game?",
-    data: message
+    message: "Inserted new game!",
+    data: addedGame
   })
 
 }
 
+// updateGame() below updates everything except the title. Treat title like a primary key where it cant be changed
 export const updateGame = async (req, res) => {
   const updatedGame = await db.updateGame(req.body);
 
-  if (updateGame) {
+  if (updatedGame) {
     res.status(201);
     res.json({
       message: "Updated the game",
-      data: message
+      data: updatedGame
     })
   } else {
     res.status(404);
     res.json({
-      message: 'Game not updated'
+      message: `Game ${req.body.title} not found`
     })
   }
-
-
 }
 
 export const deleteGame = async (req, res) => {
@@ -64,13 +64,12 @@ export const deleteGame = async (req, res) => {
   if (found) {
     res.status(200);
     res.json({
-      message: "Game is found",
-      data: message
+      message: "Game is found and deleted"
     })
   } else {
     res.status(404);
     res.json({
-      message: 'Game is not found'
+      message: `Game ${req.body.title} not found and not deleted`
     })
   }
 

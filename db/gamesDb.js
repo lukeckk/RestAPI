@@ -7,39 +7,37 @@ export const getAllGames = async () => {
   return contents;
 }
 
-export const getGameByTitle = async (name) => { // check error in this function
+export const getGameByTitle = async (name) => {
   let contents = await fs.readFile('./db/games.json');
   contents = JSON.parse(contents);
 
-  const foundGame = contents.find(game => game.title === name);
-  console.log(`Found the game ${foundGame}`);
+  const foundGame = contents.find(game => game.title.toLowerCase() === name.toLowerCase());
+  console.log(`The game is ${foundGame}`);
   return foundGame;
 
 }
 
 export const addGame = async (gameData) => {
   let contents = await fs.readFile('./db/games.json')
-  contents = JSON.parse(contents);
+  contents = JSON.parse(contents); //convert buffered JSON text to JS object
 
   contents.push(gameData);
-  await fs.writeFile('./db/games.json', JSON.stringify(contents));
-
+  await fs.writeFile('./db/games.json', JSON.stringify(contents, null, 4));
+  console.log(`Added game ${gameData}`);
   return gameData
 
 }
 
 export const updateGame = async (updateGame) => {
   let contents = await fs.readFile('./db/games.json')
-  contents = JSON.parse(contents);
+  contents = JSON.parse(contents); //convert buffered JSON text to JS object
 
-  const foundGame = contents.find(game => game.title === updateGame.title);
+  const foundGame = contents.find(game => game.title.toLowerCase() === updateGame.title.toLowerCase());
 
-  if (found) {
-    foundGame.releaseDate = updateGame.releaseDate;
+  if (foundGame) {
+    foundGame.release_date = updateGame.release_date;
     foundGame.genre = updateGame.genre;
     foundGame.developer = updateGame.developer;
-    foundGame.platform = updateGame.platform;
-    foundGame.imported_files = updateGame.imported_files;
 
     await fs.writeFile('./db/games.json', JSON.stringify(contents, null, 4));
 
@@ -58,7 +56,7 @@ export const deleteGame = async title => {
   const numRecords = contents.length;
 
   // replace the array with the updated array
-  contents = contents.filter(game => game.title === title);
+  contents = contents.filter(game => game.title.toLowerCase() !== title.toLowerCase());
 
   await fs.writeFile('./db/games.json', JSON.stringify(contents, null, 4));
 
