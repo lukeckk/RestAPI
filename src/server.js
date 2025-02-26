@@ -1,5 +1,6 @@
 import express from 'express';
-import router from './routers/gamesRouter.js';
+// import router from './routers/gamesRouter.js';
+
 import cors from 'cors';
 
 const app = express()
@@ -15,7 +16,7 @@ app.use(express.static("./public"));
 // for parsing JSON payloads (eg. get req body for POST addGame() ) 
 app.use(express.json());
 
-app.use('/games', router);
+// app.use('/games', router);
 
 app.listen(7300, () => {
   console.log('Server started on port 7300')
