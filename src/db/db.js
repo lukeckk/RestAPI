@@ -28,9 +28,19 @@ export const addGame = async (gameData) => {
   return results;
 }
 
-export const updateGame = async (updatedGame) => {
-
-}
+export const updateGame = async (title, updatedGame) => {
+  const [results] = await connection.query(
+    "UPDATE games SET release_date = ?, genre = ?, developer = ?, rating = ? WHERE title = ?",
+    [
+      updatedGame.release_date,
+      updatedGame.genre,
+      updatedGame.developer,
+      updatedGame.rating,
+      title // The WHERE condition (to update the correct game)
+    ]
+  );
+  return results;
+};
 
 export const deleteGame = async title => {
   const [results] = await connection.query(
