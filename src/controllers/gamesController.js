@@ -1,5 +1,5 @@
-// import * as db from '../db/gamesDb.js'
-import * as db from '../db/db.js'
+import * as db from '../db/gamesDb.js'
+// import * as db from '../db/db.js'
 
 
 export const getAllGames = async (req, res) => {
